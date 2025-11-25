@@ -5,8 +5,8 @@
 
 
 ## 配置与依赖
-- `requirements.txt`：项目依赖清单，包含运行所需的Python库及版本（如diffusers、transformers、torch等）。
-- `.idea/`：PyCharm IDE的配置文件夹，包含项目设置、Python环境配置、版本控制映射等（如`misc.xml`定义Python SDK，`vcs.xml`配置Git映射）。
+- `requirements.txt`：项目依赖清单。
+
 
 
 ## 核心配置
@@ -29,5 +29,3 @@
 - `utils/helpers.py`：辅助功能模块，提供图像网格生成、目录路径检查、模型参数冻结等工具函数。
 
 
-## 版本控制
-- `.gitignore`：Git版本控制忽略配置，指定无需跟踪的文件（如IDE临时文件、HTTP请求记录等）。
