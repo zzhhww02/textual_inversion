@@ -9,3 +9,4 @@ numpy
 huggingface-hub==0.36.0
 hf_xet
 ipywidgets
+peft==0.18.0
