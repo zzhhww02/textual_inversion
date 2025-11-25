@@ -1,18 +1,33 @@
-本项目用于实现文本反转（Textual Inversion）训练，通过少量图像学习特定概念的嵌入向量，以下是项目结构及各部分功能说明：
-.idea/：IDE（如 PyCharm）的项目配置文件夹，包含模块信息、Python 环境、版本控制等配置文件。
-requirements.txt：项目依赖清单，列出运行所需的 Python 库及版本（如 diffusers、transformers、torch 等）。
-configs/train_config.py：训练配置文件，定义预训练模型路径、数据目录、训练超参数（学习率、迭代步数等）。
-data/dataset.py：数据集处理模块，实现 TextualInversionDataset 类，用于加载图像、生成提示文本及图像预处理。
-models/model_loader.py：模型加载模块，负责加载 CLIP tokenizer、文本编码器、VAE、UNet 及噪声调度器。
-trainer/trainer.py：训练主模块，包含训练循环、损失计算、梯度优化及嵌入向量保存等核心逻辑。
-utils/helpers.py：工具函数模块，提供图像网格生成、路径检查、参数冻结等辅助功能。
-.gitignore：Git 版本控制忽略文件配置，指定无需跟踪的文件 / 文件夹（如 IDE 临时文件）。# Textual Inversion 项目结构说明
-本项目用于实现文本反转（Textual Inversion）训练，通过少量图像学习特定概念的嵌入向量，以下是项目结构及各部分功能说明：
-.idea/：IDE（如 PyCharm）的项目配置文件夹，包含模块信息、Python 环境、版本控制等配置文件。
-requirements.txt：项目依赖清单，列出运行所需的 Python 库及版本（如 diffusers、transformers、torch 等）。
-configs/train_config.py：训练配置文件，定义预训练模型路径、数据目录、训练超参数（学习率、迭代步数等）。
-data/dataset.py：数据集处理模块，实现 TextualInversionDataset 类，用于加载图像、生成提示文本及图像预处理。
-models/model_loader.py：模型加载模块，负责加载 CLIP tokenizer、文本编码器、VAE、UNet 及噪声调度器。
-trainer/trainer.py：训练主模块，包含训练循环、损失计算、梯度优化及嵌入向量保存等核心逻辑。
-utils/helpers.py：工具函数模块，提供图像网格生成、路径检查、参数冻结等辅助功能。
-.gitignore：Git 版本控制忽略文件配置，指定无需跟踪的文件 / 文件夹（如 IDE 临时文件）。
+
+# Textual Inversion 项目结构说明
+
+本项目用于实现Textual Inversion训练，通过少量图像学习特定概念的嵌入向量，以下是项目核心目录与文件的功能说明：
+
+
+## 配置与依赖
+- `requirements.txt`：项目依赖清单，包含运行所需的Python库及版本（如diffusers、transformers、torch等）。
+- `.idea/`：PyCharm IDE的配置文件夹，包含项目设置、Python环境配置、版本控制映射等（如`misc.xml`定义Python SDK，`vcs.xml`配置Git映射）。
+
+
+## 核心配置
+- `configs/train_config.py`：训练参数配置文件，定义预训练模型路径、数据集目录、学习率、训练步数等超参数。
+
+
+## 数据处理
+- `data/dataset.py`：数据集处理模块，实现`TextualInversionDataset`类，负责加载图像、生成提示文本（基于预设模板）及图像预处理（裁剪、缩放、翻转等）。
+
+
+## 模型加载
+- `models/model_loader.py`：模型组件加载工具，包含CLIP分词器（添加占位符token）、文本编码器、VAE、UNet及噪声调度器的加载逻辑。
+
+
+## 训练逻辑
+- `trainer/trainer.py`：训练主模块，实现训练循环、损失计算（MSE损失）、梯度优化及嵌入向量保存等核心功能，支持混合精度训练与梯度累积。
+
+
+## 工具函数
+- `utils/helpers.py`：辅助功能模块，提供图像网格生成、目录路径检查、模型参数冻结等工具函数。
+
+
+## 版本控制
+- `.gitignore`：Git版本控制忽略配置，指定无需跟踪的文件（如IDE临时文件、HTTP请求记录等）。
