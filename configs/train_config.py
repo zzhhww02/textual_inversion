@@ -1,11 +1,11 @@
 # 模型配置
-pretrained_model_name_or_path = "runwayml/stable-diffusion-v1-5"  # 可替换为其他模型
+pretrained_model_name_or_path = "runwayml/stable-diffusion-v1-5"
 
 # 数据配置
-images_path = r"D:\桌面\实验\pic"  # 训练图片目录（运行时需指定）
-what_to_teach = "object"  # "object" 或 "style"
-placeholder_token = "<cat-toy>"  # 自定义占位符token
-initializer_token = "toy"  # 初始化token
+images_path = r"D:\桌面\实验\pic"  # 训练图片目录
+what_to_teach = "style"  # "object" 或 "style"
+placeholder_token = "<van-gogh>"  # 自定义占位符token
+initializer_token = "painting"  # 初始化token
 embeds_path="embedding-output/learned_embeds.bin"
 # 训练超参数
 hyperparameters = {
